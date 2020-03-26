@@ -7,7 +7,7 @@ import subscriptions.avro.{SubscribeCmd, SubscriptionProtocol, UnsubscribeCmd}
 
 class SubscriptionProcessor extends FlinkStreamlet {
 
-  @transient val in = AvroInlet[SubscribeCmd]("in")
+  @transient val in = AvroInlet[SubscriptionProtocol]("in")
   @transient val shape = StreamletShape.withInlets(in)
 
   override def createLogic() = new FlinkStreamletLogic {

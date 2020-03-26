@@ -8,7 +8,7 @@ import subscriptions.avro.{SubscribeCmd, SubscriptionProtocol}
 import subscriptions.ingestor.SubscriptionJsonProtocol._
 
 class SubscriptionIngress extends AkkaServerStreamlet {
-  val out = AvroOutlet[SubscribeCmd]("out")
+  val out = AvroOutlet[SubscriptionProtocol]("out")
   final override val shape = StreamletShape.withOutlets(out)
 
   final override def createLogic = HttpServerLogic.default(this, out)
