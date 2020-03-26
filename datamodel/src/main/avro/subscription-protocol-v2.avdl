@@ -1,0 +1,23 @@
+@namespace("subscriptions.avro")
+protocol SubscriptionProtocolV2 {
+
+  enum EventType {
+    SUBSCRIBE, UNSUBSCRIBE
+  }
+
+  record SubscribeCmdV2 {
+    string subscriptionId;
+    string subscriberId;
+    string vesselId;
+  }
+
+  record UnsubscribeCmdV2 {
+    string subscriptionId;
+    string subscriberId;
+  }
+
+  record Event {
+    EventType eventType;
+    union { SubscribeCmdV2, UnsubscribeCmdV2 } payload;
+  }
+}
