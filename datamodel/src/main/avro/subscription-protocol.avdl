@@ -1,0 +1,14 @@
+@namespace("subscriptions.avro")
+protocol SubscriptionProtocol {
+
+  record SubscribeCmd {
+    string subscriptionId;
+    string subscriberId;
+    string vesselId;
+  }
+
+  record UnsubscribeCmd {
+    string subscriptionId;
+    string subscriberId;
+  }
+}
